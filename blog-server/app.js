@@ -5,9 +5,11 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+let blogRouter = require('./routes/blog');
+let database = require('./dbhelp');
 
 var app = express();
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -19,8 +21,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+database.connect(
+	function(){
+		app.listen(3000);
+  		console.log('Listening on port 3000');
+  	}
+ )
+let db = database.get();
+
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/blog',blogRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -38,4 +49,4 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+//module.exports = app;
