@@ -1,6 +1,9 @@
 var express = require('express');
 var router = express.Router();
 let database = require('../dbhelp');
+let commonmark = require('commonmark');
+let reader = new commonmark.Parser();
+let writer = new commonmark.HtmlRenderer();
 
 
 
@@ -30,12 +33,14 @@ router.get('/:username/:postid', function(req, res, next) {
 			}
 
 			else{
+				let parsedTitle = reader.parse(result.title);
+				let parsedBody = reader.parse(result.body);
+				let title = writer.render(parsedTitle);
+				let body = writer.render(parsedBody);
 				postid = result.postid;
 				username = result.username;
 				created = Date(result.created);
 				modified = Date(result.modified);
-				title = result.title;
-				body = result.body;
 
 				res.render('post',{postid:postid,username:username,created:created,modified:modified,title:title,body:body})
 			}
