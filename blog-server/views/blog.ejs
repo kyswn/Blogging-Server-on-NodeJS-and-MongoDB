@@ -4,8 +4,22 @@
 <body>
 <ul>
 <% for (let post of posts) { %>
-    <li><%= post.title %></li>
+    <div>
+    <li>postid:<%= post.postid %></li>
+    <li>username:<%= post.username %></li>
+    <li>created:<%= post.created %></li>
+    <li>modified:<%= post.modified %></li>
+    <li>title:<%- post.title %></li>
+    <li>body:<%- post.body %></li>
+	</div>
+	<br>
+	<br>
+	<br>
 <% } %>
+
+<% if (nextflag){ %>
+	<a id='next', href=<%=nexturl%>> Next </a>
+<% } %>
+
 </ul>
-</body>
-</html>
+</body> 
