@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Login Page</title>
+</head>
+<body>
+	<% if (error) {%>
+	<h4> ERROR 401: Invalid username/password.</h4>
+
+	<% } %>
+
+
+	<form action = "/login" method="POST">
+		<div>
+			<label> Username: </label>
+			<input type="text" name="username" id="username" placeholder="Enter username" value='<%= (username==null)? "":username %>'>
+		</div>
+		<br>
+		<div>
+			<label> Password: </label>
+			<input type="text" name="password" id="password" placeholder="Enter password" value='<%= (password==null)? "":password %>'>
+		</div>
+		<br>
+		<input type="hidden" name="redirect" id="redirect" value='<%= redirect %>'>
+		<div>
+			<button type="submit"> Submit </button>
+		</div>
+
+	</form>
+
+</body>
+</html>
