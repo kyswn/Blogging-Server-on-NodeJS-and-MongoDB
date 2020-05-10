@@ -35,7 +35,7 @@ router.post('/',function(req,res,next){
 	db.db('BlogServer').collection('Users').findOne({'username':username}, function(err,result){
 		if(err){
 			console.log(err);
-			res.status(404).end();
+			res.status(500).end();
 			return;
 		}
 		// user does not exist
