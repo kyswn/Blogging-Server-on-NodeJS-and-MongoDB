@@ -145,7 +145,7 @@ router.post('/:username/:postid',async function(req,res,next){
 
 	if(result != null){
 		console.log("Post already exists.");
-		res.status(404).end();
+		res.status(400).end();
 		return;
 	}
 	else{

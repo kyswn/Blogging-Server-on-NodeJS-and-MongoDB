@@ -61,12 +61,19 @@ router.post('/',function(req,res,next){
 						}
 						res.cookie('jwt',token);
 
+						console.log(redirect);
 						// redirect if url provided
 						if(redirect == null || redirect == ""){
 							res.status(200).render('login-success');
 						}
 						else{
-							res.status(200).redirect(redirect);
+							try{
+								res.redirect(redirect);
+							}
+							catch(error){
+								console.log(error);
+								res.status(404).end();
+							}
 						}
 					});
 
