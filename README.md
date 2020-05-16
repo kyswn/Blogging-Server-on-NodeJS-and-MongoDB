@@ -1,7 +1,8 @@
 # Blogging Server on NodeJS and MongoDB
 
-Development Log:
-Part A: FINISHED
+Implemented the website for a markdown-based blogging service that 
+(1) lets anyone read blogs written by our users through public URLs and 
+(2) lets our registered users create and update their own blogs after password authentication. 
 
-PART B: FINISHED 5/7 18:53
+Tech Stack: NodeJS, Express and MongoDB.
 
