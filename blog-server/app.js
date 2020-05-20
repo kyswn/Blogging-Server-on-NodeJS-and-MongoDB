@@ -31,8 +31,8 @@ app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
 
 database.connect(
 	function(){
-		app.listen(3000);
-  		console.log('Listening on port 3000');
+		//app.listen(3000);
+  		//console.log('Listening on port 3000');
   	}
  )
 let db = database.get();
